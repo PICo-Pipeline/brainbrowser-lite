@@ -674,9 +674,9 @@ $(function() {
     ///////////////////
     viewer.render();
 
-    // Get the file path 
-    const urlParams = new URLSearchParams(window.location.search); 
-    console.log(`${urlParams.get('path')} will be loaded`); 
+    // Get the file path
+    const modelPath = new URLSearchParams(window.location.search).get('path') || sessionStorage.getItem('modelPath');
+    console.log(`${modelPath} will be loaded`);
 
     /////////////////////
     // Load the volumes.
@@ -685,7 +685,7 @@ $(function() {
       volumes: [
         {
             type: 'nifti1',
-            nii_url:  urlParams.get('path'),
+            nii_url:  modelPath,
             template: {
               element_id: "volume-ui-template",
               viewer_insert_class: "volume-viewer-display"
