@@ -231,6 +231,39 @@ $(function() {
     });
 
 
+    container.find(".voxel-coords").change(function() {
+      var div = $(this);
+
+      var i = parseInt(div.find("#voxel-i-" + vol_id).val(), 10);
+      var j = parseInt(div.find("#voxel-j-" + vol_id).val(), 10);
+      var k = parseInt(div.find("#voxel-k-" + vol_id).val(), 10);
+
+      // Make sure the values are numeric.
+      if (!BrainBrowser.utils.isNumeric(i)) {
+        i = 0;
+      }
+      if (!BrainBrowser.utils.isNumeric(j)) {
+        j = 0;
+      }
+      if (!BrainBrowser.utils.isNumeric(k)) {
+        k = 0;
+      }
+
+      // Set coordinates and redraw.
+      viewer.volumes[vol_id].setVoxelCoords(i, j, k);
+      if (viewer.synced) {
+        var synced_volume = viewer.volumes[vol_id];
+        var wc = synced_volume.getWorldCoords();
+        viewer.volumes.forEach(function(volume) {
+          if (synced_volume !== volume) {
+            volume.setWorldCoords(wc.x, wc.y, wc.z);
+          }
+        });
+      }
+
+      viewer.redrawVolumes();
+    });
+
       // Color map URLs are read from the config file and added to the
       // color map select box.
       var color_map_select = $('<select id="color-map-select"></select>').change(function() {

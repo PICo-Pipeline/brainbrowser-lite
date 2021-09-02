@@ -36,25 +36,31 @@
   <script id="volume-ui-template" type="x-volume-ui-template">
 
     <div class="volume-viewer-display"></div>
-
-
     <div class="volume-viewer-controls volume-controls">
-       
-       <div id="pannel-sync-screen">
-         <span class="control-heading">Panel size:</span>
-         <select id="panel-size">
-           <option value="-1">Auto</option>
-           <option value="128">128</option>
-           <option value="256" SELECTED>256</option>
-           <option value="512">512</option>
-          </select>
-          <span id="sync-volumes-wrapper">
-           <input type="checkbox" class="button" id="sync-volumes"><label for="sync-volumes">Synchronize</label>
-         </span>
-         <span id="screenshot" class="button">Screenshot</span>
-       </div>
-         
-
+      <div id="pannel-sync-screen">
+        <span class="control-heading">Panel size:</span>
+        <select id="panel-size">
+          <option value="-1">Auto</option>
+          <option value="128">128</option>
+          <option value="256" SELECTED>256</option>
+          <option value="512">512</option>
+        </select>
+        <span id="sync-volumes-wrapper">
+          <input type="checkbox" class="button" id="sync-volumes"><label for="sync-volumes">Synchronize</label>
+        </span>
+        <span id="screenshot" class="button">Screenshot</span>
+      </div>
+     
+      <div class="coords">
+        <div class="control-heading" id="voxel-coordinates-heading-{{VOLID}}">
+          Voxel Coordinates:
+        </div>
+        <div class="voxel-coords" data-volume-id="{{VOLID}}">
+          I:<input id="voxel-i-{{VOLID}}" class="control-inputs">
+          J:<input id="voxel-j-{{VOLID}}" class="control-inputs">
+          K:<input id="voxel-k-{{VOLID}}" class="control-inputs">
+        </div>
+      </div>
       <div id="intensity-value-div-{{VOLID}}">
         <span class="control-heading" data-volume-id="{{VOLID}}">
           Value:
