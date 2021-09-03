@@ -31,6 +31,9 @@
 $(function() {
   "use strict";
 
+  // Default values
+  const VIEWER_PANEL_SIZE=350;
+
   $(".button").button();
 
   /////////////////////////////////////
@@ -700,7 +703,7 @@ $(function() {
     ////////////////////////////////////////
     // Set the size of slice display panels.
     ////////////////////////////////////////
-    viewer.setDefaultPanelSize(256, 256);
+    viewer.setDefaultPanelSize(VIEWER_PANEL_SIZE, VIEWER_PANEL_SIZE);
 
     ///////////////////
     // Start rendering.

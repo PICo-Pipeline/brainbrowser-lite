@@ -68,7 +68,11 @@ canvas.slice-display {
 
 .volume-controls {
   width: 240px;
-  height: 550px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* height: 550px; */
 }
 
 #global-controls {
@@ -109,7 +113,7 @@ canvas.slice-display {
 
 .control-inputs {
   margin-right: 0.6em;
-  width: 40px;
+  /* width: 40px; */
   font-size: 10px;
 }
 
@@ -126,23 +130,29 @@ canvas.slice-display {
 }
 
 .slider {
-  margin-top: 1.5em!important;
-  margin-bottom: 1em!important;
+  /* margin-top: 1.5em!important;
+  margin-bottom: 1em!important; */
 }
+
 
 .thresh-inputs {
   position: relative;
   height: 1em;
+  display:flex;
 }
 
 .thresh-input-left {
-  position: absolute;
-  left: 3px;
+  /* position: absolute;
+  left: 3px; */
 }
 
 .thresh-input-right {
-  position: absolute;
-  right: 10px;
+  /* position: absolute;
+  right: 10px; */
+  float:right;
+}
+.thresh-slider {
+  width:150px;
 }
 
 .slice-series-button {
@@ -172,4 +182,8 @@ canvas.slice-display {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
+}
+
+.hide{
+  display:none;
 }

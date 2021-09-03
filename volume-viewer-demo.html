@@ -37,13 +37,15 @@
 
     <div class="volume-viewer-display"></div>
     <div class="volume-viewer-controls volume-controls">
-      <div id="pannel-sync-screen">
+      <div id="pannel-sync-screen" class="hide">
         <span class="control-heading">Panel size:</span>
         <select id="panel-size">
           <option value="-1">Auto</option>
           <option value="128">128</option>
-          <option value="256" SELECTED>256</option>
+          <option value="256">256</option>
           <option value="512">512</option>
+          <option value="300">300</option>
+          <option value="350" SELECTED>350</option>
         </select>
         <span id="sync-volumes-wrapper">
           <input type="checkbox" class="button" id="sync-volumes"><label for="sync-volumes">Synchronize</label>
@@ -80,25 +82,26 @@
         </div>
         <div class="thresh-inputs">
           <input id="min-threshold-{{VOLID}}" class="control-inputs thresh-input-left" value="0"/>
+          <div class="thresh-slider slider volume-viewer-threshold" id="threshold-slider-{{VOLID}}"></div>
           <input id="max-threshold-{{VOLID}}" class="control-inputs thresh-input-right" value="255"/>
         </div>
-        <div class="slider volume-viewer-threshold" id="threshold-slider-{{VOLID}}"></div>
+
       </div>
 
       <div id="time-{{VOLID}}" class="time-div" data-volume-id="{{VOLID}}" style="display:none">
         <span class="control-heading">Time:</span>
         <input class="control-inputs" value="0" id="time-val-{{VOLID}}"/>
+        <input type="checkbox" style="float: right;" class="button" id="play-{{VOLID}}"><label for="play-{{VOLID}}">Play</label>
         <div class="slider volume-viewer-threshold" id="time-slider-{{VOLID}}"></div>
-        <input type="checkbox" class="button" id="play-{{VOLID}}"><label for="play-{{VOLID}}">Play</label>
       </div>
 
-      <div class="contrast-div" data-volume-id="{{VOLID}}">
+      <div class="hide contrast-div" data-volume-id="{{VOLID}}">
         <span class="control-heading" id="contrast-heading{{VOLID}}">Contrast (0.0 to 2.0):</span>
         <input class="control-inputs" value="1.0" id="contrast-val"/>
         <div id="contrast-slider" class="slider volume-viewer-contrast"></div>
       </div>
 
-      <div class="brightness-div" data-volume-id="{{VOLID}}">
+      <div class="hide brightness-div" data-volume-id="{{VOLID}}">
         <span class="control-heading" id="brightness-heading{{VOLID}}">Brightness (-1 to 1):</span>
         <input class="control-inputs" value="0" id="brightness-val"/>
         <div id="brightness-slider" class="slider volume-viewer-brightness"></div>
